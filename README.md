@@ -140,3 +140,4 @@ uvicorn main:app --reload
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Kriti%20Raj-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/kriti-raj-5b398236a)
 
 </div>
+
