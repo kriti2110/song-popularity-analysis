@@ -20,14 +20,30 @@
 
 ## Overview
 
-Predicts song popularity (popular / not popular) using audio features extracted from Spotify. A song is labelled **popular** if its popularity score exceeds 50.
+Predicts song popularity (popular / not popular) using audio features extracted from Spotify. A song is labelled **popular** if its popularity score exceeds 50. Handles class imbalance via upsampling and compares Logistic Regression, Random Forest, and XGBoost — XGBoost achieves the best F1 and AUC-ROC.
 
 | Property | Details |
 |----------|---------|
-| ![](https://img.shields.io/badge/Problem-6366f1?style=flat-square) | Binary classification: popular (>50) vs not popular (≤50) |
-| ![](https://img.shields.io/badge/Dataset-1DB954?style=flat-square) | 114,000+ Spotify tracks with audio features |
-| ![](https://img.shields.io/badge/Backend-009688?style=flat-square) | FastAPI REST API with `/predict` endpoint |
-| ![](https://img.shields.io/badge/Frontend-f59e0b?style=flat-square) | HTML/JS interface for live predictions |
+| ![](https://img.shields.io/badge/Problem-6366f1?style=flat-square) | Binary classification: popular (score > 50) vs not popular |
+| ![](https://img.shields.io/badge/Dataset-1DB954?style=flat-square) | 114,000+ Spotify tracks with 15+ audio features |
+| ![](https://img.shields.io/badge/Best_Model-f59e0b?style=flat-square) | XGBoost with SMOTE upsampling |
+| ![](https://img.shields.io/badge/Backend-009688?style=flat-square) | FastAPI REST API with `/predict` and `/upload` endpoints |
+| ![](https://img.shields.io/badge/Frontend-f97316?style=flat-square) | HTML/JS interface for live single-track predictions |
+
+### Audio Features Used
+
+| Feature | Description |
+|---------|-------------|
+| `danceability` | How suitable a track is for dancing (0–1) |
+| `energy` | Perceptual measure of intensity and activity (0–1) |
+| `valence` | Musical positiveness — happy vs sad (0–1) |
+| `tempo` | Estimated beats per minute |
+| `loudness` | Overall loudness in dB |
+| `acousticness` | Confidence the track is acoustic (0–1) |
+| `instrumentalness` | Predicts whether a track has no vocals (0–1) |
+| `speechiness` | Presence of spoken words (0–1) |
+| `liveness` | Detects presence of a live audience (0–1) |
+| `duration_ms` | Track duration in milliseconds |
 
 ---
 
